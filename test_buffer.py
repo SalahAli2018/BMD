@@ -6,25 +6,25 @@ class TestBuffer(unittest.TestCase):
     Unit test suite for Buffer class.
     """
 
-    def test_initialization(self):
+    def test_initialisation(self):
         """
-        Test Buffer initialization with and without an iterable.
+        Test Buffer initialisation with and without an iterable.
         """
-        # Test initialization with an iterable
+        # Test initialisation with an iterable
         buffer = Buffer(3, [1, 2, 3])
-        self.assertEqual(len(buffer), 3  )# Buffer should contain 2 elements
+        self.assertEqual(len(buffer), 3)  # Buffer should contain 3 elements
         self.assertEqual(buffer.capacity, 3)  # Capacity should be 3
         self.assertEqual(repr(buffer), '1 2 3')  # String representation should match
 
-        # Test initialization without an iterable
+        # Test initialisation without an iterable
         buffer = Buffer(3)
         self.assertEqual(len(buffer), 0)  # Buffer should be empty
         self.assertEqual(buffer.capacity, 3)  # Capacity should be 3
         self.assertEqual(repr(buffer), '')  # String representation should be empty
 
-    def test_initialization_with_over_capacity_iterable(self):
+    def test_initialisation_with_over_capacity_iterable(self):
         """
-        Test Buffer initialization with an iterable that exceeds capacity.
+        Test Buffer initialisation with an iterable that exceeds capacity.
         """
         with self.assertRaises(ValueError):
             Buffer(3, [1, 2, 3, 4])  # Should raise ValueError
